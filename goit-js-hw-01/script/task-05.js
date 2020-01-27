@@ -1,6 +1,6 @@
 'use strict';
 
-const country = prompt('Укажите страну');
+const country = prompt('Укажите страну доставки!');
 
 let message;
 
@@ -30,7 +30,7 @@ if (country === null) {
       break;
 
     default:
-      alert('В вашей стране доставка не доступна');
+      alert('В вашей стране доставка не доступна!');
   }
   if (message > 0) {
     console.log(`Доставка в ${countryInLC} будет стоить ${message} кредитов`);

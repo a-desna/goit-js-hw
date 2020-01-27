@@ -13,7 +13,7 @@ do {
   if ((input = Number(input))) {
     total = total + input;
   } else if (input !== Number) {
-    alert('Было введено не число, попробуйте еще раз');
+    alert('Было введено не число, попробуйте еще раз!');
   }
   console.log(total);
 } while (input !== null);
