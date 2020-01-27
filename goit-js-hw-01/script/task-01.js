@@ -2,10 +2,10 @@
 
 const name = 'Генератор защитного поля';
 
-const price = 1000;
+let price = 1000;
 
 console.log(`Выбран ${name}, цена за штуку ${price} кредитов`);
 
-const newPrice = price * 2;
+price = 2000;
 
-console.log(`Выбран ${name}, цена за штуку ${newPrice} кредитов`);
+console.log(`Выбран ${name}, цена за штуку ${price} кредитов`);
