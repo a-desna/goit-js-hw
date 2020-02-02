@@ -31,7 +31,7 @@ do {
 
 for (const number of numbers) {
   alert(`Общая сумма чисел равна ${total}`);
-  console.log(total);
+  console.log(numbers);
   break;
 }
 
