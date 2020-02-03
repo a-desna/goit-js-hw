@@ -1,6 +1,6 @@
 'use strict';
 
-const logItems = function(array, value) {
+const logItems = function(array) {
   for (let i = 0; i < array.length; i += 1) {
     // console.log('индекс: ', i);
     const numberEl = i + 1;
