@@ -1,24 +1,72 @@
 'use strict';
 
-const products = [
-  { name: 'Радар', price: 1300, quantity: 4 },
-  { name: 'Сканер', price: 2700, quantity: 3 },
-  { name: 'Дроид', price: 400, quantity: 7 },
-  { name: 'Захват', price: 1200, quantity: 2 },
-];
+class Car {
+  static getSpecs(car) {
+    console.log(car);
+  }
 
-const getAllPropValues = function(arr, prop) {
-  let productsValues = [];
-  arr.forEach(product => {
-    if (prop in product) {
-      productsValues.push(product[prop]);
+  constructor({ maxSpeed, price }) {
+    this.maxSpeed = maxSpeed;
+    this.speed = 0;
+    this.isOn = false;
+    this.distance = 0;
+    this._price = price;
+  }
+
+  get price() {
+    return this._price;
+  }
+
+  set price(price) {
+    this._price = price;
+  }
+
+  turnOn() {
+    this.isOn = true;
+  }
+
+  turnOff() {
+    this.isOn = false;
+    if (this.isOn === false) {
+      this.speed = 0;
     }
-  });
-  return productsValues;
-};
+  }
 
-console.log(getAllPropValues(products, 'name'));
+  accelerate(value) {
+    this.speed += value;
+    if (this.speed > this.maxSpeed) {
+      this.speed = this.maxSpeed;
+    }
+  }
 
-console.log(getAllPropValues(products, 'quantity'));
+  decelerate(value) {
+    this.speed -= value;
+    if (this.speed < 0) {
+      this.speed = 0;
+    }
+  }
 
-console.log(getAllPropValues(products, 'category'));
+  drive(hours) {
+    if (this.isOn === true) {
+      this.distance += hours * this.speed;
+    }
+  }
+}
+
+const mustang = new Car({ maxSpeed: 200, price: 2000 });
+
+mustang.turnOn();
+mustang.accelerate(50);
+mustang.drive(2);
+
+Car.getSpecs(mustang);
+
+mustang.decelerate(20);
+mustang.drive(1);
+mustang.turnOff();
+
+Car.getSpecs(mustang);
+
+console.log(mustang.price);
+mustang.price = 4000;
+console.log(mustang.price);
