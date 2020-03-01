@@ -27,27 +27,27 @@ class Car {
 
   turnOff() {
     this.isOn = false;
-    if (this.isOn === false) {
-      this.speed = 0;
-    }
+    this.speed = 0;
   }
 
   accelerate(value) {
-    this.speed += value;
-    if (this.speed > this.maxSpeed) {
+    if (this.speed + value > this.maxSpeed) {
       this.speed = this.maxSpeed;
+    } else {
+      this.speed += value;
     }
   }
 
   decelerate(value) {
-    this.speed -= value;
-    if (this.speed < 0) {
+    if (this.speed - value < 0) {
       this.speed = 0;
+    } else {
+      this.speed -= value;
     }
   }
 
   drive(hours) {
-    if (this.isOn === true) {
+    if (this.isOn) {
       this.distance += hours * this.speed;
     }
   }
@@ -63,6 +63,7 @@ Car.getSpecs(mustang);
 
 mustang.decelerate(20);
 mustang.drive(1);
+
 mustang.turnOff();
 
 Car.getSpecs(mustang);
