@@ -32,6 +32,9 @@ function createBoxMarkup() {
   divBoxes.appendChild(box);
 }
 
+// function createBoxes(amount) {
+//   Array(30).fill('').map((e,i) => ...
+
 function createBoxes(amount) {
   boxSize = 30;
   for (let i = 0; i < amount; i += 1) {

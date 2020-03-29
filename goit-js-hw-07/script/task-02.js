@@ -11,9 +11,22 @@ const ingredients = [
 
 const list = document.querySelector('#ingredients');
 
-const insertItemList = items =>
-  items.map(
-    el => (list.appendChild(document.createElement('li')).textContent = el),
-  );
+const insertItemList = ingredients.map(el => {
+  const li = document.createElement('li');
+  li.textContent = el;
+  return li;
+});
 
-insertItemList(ingredients);
+list.append(...insertItemList);
+
+// function insertItemList(items, position, markupElement) {
+//   const itemList = items.map(el => {
+//     const li = document.createElement(markupElement);
+//     li.textContent = el;
+//     return li;
+//   });
+
+//   position.append(...itemList);
+// }
+
+// insertItemList(ingredients, list, 'li');
