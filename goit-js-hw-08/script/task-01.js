@@ -42,7 +42,7 @@ refs.galleryList.addEventListener('click', handleOpenModal);
 refs.lightbox.addEventListener('click', handleCloseModal);
 
 function handleOpenModal(e) {
-  event.preventDefault();
+  e.preventDefault();
 
   if (e.target === e.currentTarget) {
     return;
@@ -61,7 +61,7 @@ function handleCloseModal(e) {
   if (e.target === refs.lightboxImage) {
     return;
   }
-  cloceModal();
+  closeModal();
 }
 
 function handleKeyPress(e) {
@@ -69,10 +69,10 @@ function handleKeyPress(e) {
     return;
   }
 
-  cloceModal();
+  closeModal();
 }
 
-function cloceModal() {
+function closeModal() {
   refs.lightbox.classList.remove('is-open');
   window.removeEventListener('keydown', handleKeyPress);
   refs.lightboxImage.src = '';
